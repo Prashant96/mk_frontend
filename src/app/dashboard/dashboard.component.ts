@@ -9,6 +9,8 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
   notifications = 4;
+  public message="";
+  public name = "Dashboard";
   ngOnInit() {
   }
 

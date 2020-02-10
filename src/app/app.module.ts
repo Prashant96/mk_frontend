@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { MenubarComponent } from './menubar/menubar.component';
 import { ListComponent } from './list/list.component';
 import { GridListComponent } from './grid-list/grid-list.component';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { GridListComponent } from './grid-list/grid-list.component';
     SidenavComponent,
     MenubarComponent,
     ListComponent,
-    GridListComponent
+    GridListComponent,
+    ExpansionPanelComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

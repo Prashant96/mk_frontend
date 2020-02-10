@@ -1,9 +1,12 @@
 <div>
     <app-header></app-header>
+    <h2 [style.color]="'orange'">Welcome to Cafe</h2>
     <!-- <app-menubar></app-menubar> -->
     <!-- <app-list></app-list> -->
-    <app-grid-list></app-grid-list>
-    <div class="content">
+    <!-- <app-grid-list></app-grid-list> -->
+    <!-- <app-expansion-panel></app-expansion-panel> -->
+    <!-- <div class="content">
         <span class="heading">Come to the luxurious</span>
-    </div>
+    </div> -->
+    <app-card (childEvent)="message=$event" [parentData]="name"></app-card>
 </div>
