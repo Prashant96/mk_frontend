@@ -1,1 +1,18 @@
-<p>forgot-pin works!</p>
+<div class="container-fluid pb-1" [style.width]="'50%'">
+    <div align="center">
+      <h1>Forgot Pin</h1>
+    </div>
+    <form #forgortPinForm="ngForm">   
+      <div class="form-group">
+        <label for="email">Enter email provided for your account</label>
+        <input type="email" #email="ngModel" name="email" class="form-control"
+        required [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="emailId">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Enater valid email</small>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn-link" routerLink="/login">Back</button>
+        <button class="btn-primary" type="submit">Send Email</button>
+      </div>
+    </form>
+  </div>

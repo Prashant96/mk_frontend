@@ -17,6 +17,9 @@ import { ListComponent } from './list/list.component';
 import { GridListComponent } from './grid-list/grid-list.component';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { CardComponent } from './card/card.component';
+import { LogoutComponent } from './logout/logout.component';
+import { DashboardService } from './dashboard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { CardComponent } from './card/card.component';
     ListComponent,
     GridListComponent,
     ExpansionPanelComponent,
-    CardComponent
+    CardComponent,
+    LogoutComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { CardComponent } from './card/card.component';
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

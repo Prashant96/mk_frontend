@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container-fluid pb-1" [style.width]="'50%'">
+    <div align="center">
+      <h1>Login</h1>
+    </div>
+    <form #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" #email="ngModel" name="email" class="form-control"
+        required [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="emailId">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Enater valid email</small>
+      </div>
+      
+      <!-- <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched"
+         name="phone" class="form-control" [(ngModel)]="phoneNumber">
+         <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone must be of 10 digits</small>
+      </div> -->
+  
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" [(ngModel)]="pwd"
+        #password="ngModel" minlength="8" required [class.is-invalid]="password.invalid && password.touched">
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password must be atleast of 8 characters</small>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button class="btn-link" routerLink="/forgot-pin">Forgot Password</button>
+        <button class="btn-link" routerLink="/register">Already have account</button>
+        <button class="btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
