@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule} from './material/material.module'
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { CardComponent } from './card/card.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardService } from './dashboard.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ResetPinComponent } from './reset-pin/reset-pin.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +40,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CardComponent,
     LogoutComponent,
     PageNotFoundComponent,
+    ResetPinComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
