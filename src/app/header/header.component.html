@@ -8,8 +8,11 @@
       <span>About</span>
       <span>Contact Us</span>
   </div>
-  <div>
+  <div *ngIf="!isLoggedIn">
       <button mat-button routerLink="/login">Login</button>|
       <button mat-button routerLink="/register"> Register</button>
   </div>
+  <div *ngIf="isLoggedIn">
+    <button mat-button (click)="logout($event)">Logout</button>
+</div>
 </mat-toolbar>

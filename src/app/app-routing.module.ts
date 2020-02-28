@@ -6,13 +6,14 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPinComponent } from './forgot-pin/forgot-pin.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'forgot-pin', component: ForgotPinComponent},
   {path: 'sidenav', component: SidenavComponent},

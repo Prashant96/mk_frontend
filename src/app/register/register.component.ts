@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { TokenService } from '../Services/token.service';
 
 @Component({
   selector: 'app-register',
@@ -8,35 +10,46 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
+  public form = {
+    name: null,
+    email: null,
+    password: null,
+    phone: null,
+  }
   public userName:string;
   public userEmail:string;
   public userPhone:string;
   public userPassword:string;
   public userModel = new User('', 'prashantmote96@gmail.com', '123456');
   public allUsers: any; 
-  constructor(private userService:UserService) { }
+
+  constructor(
+    private userService:UserService,
+    private router:Router,
+    private token: TokenService
+  ) { }
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe(
-      (response) => {
-        console.log("HERE COMPO");
-        this.allUsers = response;
-      }
-    );
+  }
+
+  onSubmit(){
+    this.registerUser();
   }
 
   registerUser(){
-    let user = {
-      name:this.userName,
-      email:this.userEmail,
-      phone:this.userPhone,
-      password:this.userPassword,
-    }
-    this.userService.registerUser(user).subscribe(
-      (response) => {
-        console.log(response);
-      }
+    this.userService.registerUser(this.form).subscribe(
+      data => this.handleSignup(data),
+      error => this.handleError(error)
     )
+  }
+
+  handleError(error: any): void {
+    console.log(error.error.error);  
+  }
+
+  handleSignup(data: any): void {
+    this.token.handle(data.access_token);
+    this.router.navigate(['/dashboard'])
   }
 
 }
